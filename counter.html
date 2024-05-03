@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .counter {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter"><span id="count">0</span> satisfied customers</div>
+    <script>
+      // Function to animate the counter
+      function animateCounter(target, start, end, duration) {
+        let current = start;
+        const increment = Math.ceil((end - start) / duration);
+        const counter = document.getElementById(target);
+
+        const timer = setInterval(function () {
+          current += increment;
+          counter.textContent = current;
+          if (current >= end) {
+            clearInterval(timer);
+            counter.textContent = end;
+          }
+        }, 1);
+      }
+
+      // Call the function to start the animation
+      animateCounter("count", 0, 500, 3000); // Start from 0, reach 500 in 3000 milliseconds (3 seconds)
+    </script>
+  </body>
+</html>
